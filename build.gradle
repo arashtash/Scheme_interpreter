@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'ca.dal.csci3137'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.jetbrains:annotations:20.1.0'
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    // https://mvnrepository.com/artifact/org.mockito/mockito-core
+    testImplementation group: 'org.mockito', name: 'mockito-core', version: '5.11.0'
+
+    // https://mvnrepository.com/artifact/nl.jqno.equalsverifier/equalsverifier
+    testImplementation 'nl.jqno.equalsverifier:equalsverifier:3.16.1'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+apply plugin : "java"
+ext {
+    javaMainClass = "ca.dal.csci3137.Main"
+}
+application {
+    mainClassName = javaMainClass
+}
